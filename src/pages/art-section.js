@@ -11,7 +11,7 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulArtCategory.edges')
     const pageId = this.props.location.search.slice(1)
-    let post = posts.find(i => i.node.id === pageId)
+    let post = posts.find(i => i.node.id === pageId) || posts[0]
     post = post ? post.node : null
 
     const arts = get(this, 'props.data.allContentfulArtPage.edges')
