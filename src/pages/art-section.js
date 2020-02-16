@@ -29,7 +29,7 @@ class RootIndex extends React.Component {
               {pageArts.map(({ node }) => {
                 return (
                   <li key={node.id}>
-                    <Link to={`/page/${node.slug}`}>{node.title}</Link>
+                    <Link to={`/art/${node.slug}`}>{node.title}</Link>
                   </li>
                 )
               })}
@@ -63,7 +63,7 @@ export const pageQuery = graphql`
         node {
           id,
           title,
-          slug,
+          slug
           artCategory {
             id,
           }
