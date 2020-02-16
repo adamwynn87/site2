@@ -11,16 +11,14 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulArtCategory.edges')
     const pageId = this.props.location.search.slice(1)
-    const post = posts.find(i => i.node.id === pageId).node
+    let post = posts.find(i => i.node.id === pageId)
+    post = post ? post.node : null
 
     const arts = get(this, 'props.data.allContentfulArtPage.edges')
-    const pageArts = arts.filter(i => i.node.artCategory.id === pageId)
-    console.log("pageArts", pageArts);
+    const pageArts = arts.filter(i => i.node.artCategory.id === pageId) || arts[0]
+
     return (
       <Layout location={this.props.location} >
-        <div className="sidebar"></div>
-        <div className="content"></div>
-
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
