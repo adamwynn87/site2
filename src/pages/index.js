@@ -9,28 +9,12 @@ import ArticlePreview from '../components/article-preview'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const imageUrl = get(this, 'props.data.contentfulHomepage.image.file.url')
 
+    console.log("imageUrl", imageUrl);
     return (
       <Layout location={this.props.location} >
-        <div className="sidebar"></div>
-        <div className="content"></div>
-
-
-        {/*<div style={{ background: '#fff' }}>*/}
-        {/*  <Helmet title={siteTitle} />*/}
-        {/*  <div className="wrapper">*/}
-        {/*    <h2 className="section-headline">Recent articles</h2>*/}
-        {/*    <ul className="article-list">*/}
-        {/*      {posts.map(({ node }) => {*/}
-        {/*        return (*/}
-        {/*          <li key={node.slug}>*/}
-        {/*            <ArticlePreview article={node} />*/}
-        {/*          </li>*/}
-        {/*        )*/}
-        {/*      })}*/}
-        {/*    </ul>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+       <img src={imageUrl} />
       </Layout>
     )
   }
@@ -45,5 +29,14 @@ export const pageQuery = graphql`
         title
       }
     }
+      contentfulHomepage {
+    id
+    image {
+      id
+      file {
+        url
+      }
+    }
+  }
   }
 `

@@ -13,14 +13,9 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} >
-        <div className="sidebar"></div>
-        <div className="content"></div>
-
-
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (

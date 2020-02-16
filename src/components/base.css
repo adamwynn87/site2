@@ -37,6 +37,10 @@ a {
   padding: 5vmin 0;
 }
 
+.header {
+  text-align: center;
+}
+
 /**
  * article grid
  */
