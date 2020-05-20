@@ -11,11 +11,14 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const imageUrl = get(this, 'props.data.contentfulHomepage.image.file.url')
 
-    console.log("imageUrl", imageUrl);
+    const style = { marginTop: '20vh', textAlign: 'center' }
     return (
-      <Layout location={this.props.location} >
-       <img src={imageUrl} />
-      </Layout>
+      <div style={style}>
+        <h1>Under construction&hellip;</h1>
+      </div>
+      // <Layout location={this.props.location} >
+      //  <img src={imageUrl} />
+      // </Layout>
     )
   }
 }
