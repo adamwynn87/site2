@@ -10,15 +10,30 @@ class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const imageUrl = get(this, 'props.data.contentfulHomepage.image.file.url')
+    const posts = get(this, 'props.data.allContentfulArtCategory.edges')
 
-    const style = { marginTop: '20vh', textAlign: 'center' }
+    const {id} = posts[0].node
+
+    const nav = [
+      {
+        text: "Selected Works",
+        link: `art-section?${id}`
+      },
+      {
+        text: "CV",
+        link: "/cv/"
+      },
+      {
+        text: "Contact",
+        link: "/contact/"
+      },
+    ]
+    
+  
     return (
-      <div style={style}>
-        <h1>Under construction&hellip;</h1>
-      </div>
-      // <Layout location={this.props.location} >
-      //  <img src={imageUrl} />
-      // </Layout>
+      <Layout location={this.props.location} title="Home" navList={nav}>
+       <img src={imageUrl} />
+      </Layout>
     )
   }
 }
@@ -32,14 +47,21 @@ export const pageQuery = graphql`
         title
       }
     }
-      contentfulHomepage {
-    id
-    image {
+    contentfulHomepage {
       id
-      file {
-        url
+      image {
+        id
+        file {
+          url
+        }
       }
     }
-  }
+    allContentfulArtCategory {
+      edges {
+        node {
+          id
+        }
+      }
+    }
   }
 `

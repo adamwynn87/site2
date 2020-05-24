@@ -11,13 +11,13 @@ body {
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
-  background: #eee;
+  background: #fff;
   margin: 0;
 }
 
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 
 h1,
@@ -38,7 +38,34 @@ a {
 }
 
 .header {
-  text-align: center;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top:0;
+  right: 0;
+  position: fixed;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  fill: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.content-container {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+  
+}
+
+.content {
+  flex: 1;
+  padding-left: 5%;
+
 }
 
 /**

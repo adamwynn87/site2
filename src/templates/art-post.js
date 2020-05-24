@@ -12,19 +12,7 @@ import heroStyles from '../components/hero.module.css'
 class ArtPageTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulArtPage')
-    const options = {
-      renderNode: {
-        [BLOCKS.EMBEDDED_ASSET]: node => {
-          console.log(node)
-          let { description, title, file } = node.data.target.fields
-          // console.log(file["en-US"].url)
-          return <img src={file["en-US"].url} />
-        },
-      }
-    }
-
     const content = documentToReactComponents(post.content.json, options)
-
 
     // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     console.log("content", content);

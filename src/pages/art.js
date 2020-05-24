@@ -12,7 +12,7 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulArtCategory.edges')
 
     return (
-      <Layout location={this.props.location} >
+      <Layout location={this.props.location}  title="Select works" navList={navList}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className="wrapper">

@@ -2,21 +2,20 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
 
-export default () => (
-  <nav role="navigation">
+export default ({navList, title}) =>  (
+  <div className={styles.sidebar}>
+    <div className={styles.sidebarContent}>
+    <p>{title}</p>
+    <nav role="navigation">
+
     <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
-        <Link to="/">Home</Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/art/">Art</Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/art/">CV</Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/art/">Contact</Link>
-      </li>
+        {navList.map((item, index) => {
+          return <li className={styles.navigationItem} key={index}>
+            <Link to={item.link}>{item.text}</Link>
+          </li>
+        })}
     </ul>
   </nav>
+    </div>
+  </div>
 )

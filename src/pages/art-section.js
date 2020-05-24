@@ -17,8 +17,13 @@ class RootIndex extends React.Component {
     const arts = get(this, 'props.data.allContentfulArtPage.edges')
     const pageArts = arts.filter(i => i.node.artCategory.id === pageId) || arts[0]
 
+    const navList = posts.map(i => ({
+      text: i.node.name,
+      link: i.node.id
+    }))
+
     return (
-      <Layout location={this.props.location} >
+      <Layout location={this.props.location} navList={navList} title="Selected Works">
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
