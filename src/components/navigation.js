@@ -2,10 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
 
-export default ({navList, title}) =>  (
+export default ({navList, showHomeLink = true}) =>  (
   <div className={styles.sidebar}>
     <div className={styles.sidebarContent}>
-    <p>{title}</p>
+    { showHomeLink &&
+        <h3><Link to="/">Home</Link></h3>
+      }
     <nav role="navigation">
 
     <ul className={styles.navigation}>

@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
         posts.forEach((post, index) => {
           console.log("post", post);
           createPage({
-            path: `/art/${post.node.slug}/`,
+            path: `/art-post/${post.node.slug}/`,
             component: artPost,
             context: {
               slug: post.node.slug

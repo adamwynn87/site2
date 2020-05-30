@@ -65,7 +65,7 @@ a {
 .content {
   flex: 1;
   padding-left: 5%;
-
+  background: white;
 }
 
 /**
