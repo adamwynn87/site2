@@ -1,25 +1,45 @@
+.homeLink {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 16px;
+  font-weight: normal;
+}
+
 .sidebar {
   padding: 0 60px;
-  background-color: #eee;
-} 
+  /*background-color: #eee;*/
+  /*display: none;*/
+  background: #eee;
+  transform: translateX(-250px);
+  width: 250px;
+  box-sizing: border-box;
+}
 
 .sidebarContent {
   position: sticky;
   top: 0;
 }
 
-.navigation {
-
+.navigation,
+.navigationTop {
   list-style: none;
-  margin: 0;
+  margin: 0 0 16px 0;
   padding: 0;
 }
 
-.navigationItem {
+.navigationTop {
+  font-weight: bold;
+  margin-top: 16px;
 
 }
 
 .navigationItem a {
   color: currentColor;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    transform: translateY(0);
+  }
 }

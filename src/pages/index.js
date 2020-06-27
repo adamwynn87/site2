@@ -1,37 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const imageUrl = get(this, 'props.data.contentfulHomepage.image.file.url')
     const posts = get(this, 'props.data.allContentfulArtPage.edges')
-
-    const {slug} = posts[0].node
-
-    const nav = [
-      {
-        text: "Selected Works",
-        link: `art-post/${slug}`
-      },
-      {
-        text: "CV",
-        link: "/cv/"
-      },
-      {
-        text: "Contact",
-        link: "/contact/"
-      },
-    ]
-    
-  
+    console.log('posts', posts)
     return (
-      <Layout location={this.props.location} title="Home" navList={nav}>
+      <Layout location={this.props.location} title="Home">
        <img src={imageUrl} />
       </Layout>
     )
